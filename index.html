@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Display JSON File</title>
+</head>
+<body>
+  <h1>JSON Data:</h1>
+  <pre id="json-data"></pre>
+
+  <script>
+    fetch('block.json')
+    .then(response => response.json())
+    .then(data => {
+        // Stringify the JSON data and display it in the pre element
+        const jsonDataPre = document.getElementById('json-data');
+        jsonDataPre.textContent = JSON.stringify(data, null, 2);
+    })
+    .catch(error => console.error(error)); // Log any errors to the console
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+Needed:
+
+Website/Server -:
+    Generates a CSR and sends it to the certificate authority to get its SSL/TLS certificate
+    Helps Clients to find each other
+
+Certificate Authority -:
+    Receives a CSR from the website and sends it the signed certificate
+
+Mainnet -:
+    Shows the live blockchain
+    Selects the validator/miner to validate the transaction
+
+Validators -:
+    When a new validator comes live, it makes a local copy of blockchain ledger
+    from the mainnet. 
+    Multiple validators wait for getting chosen for validating the transaction.
+    After validation, rest of the validators verifies the transaction and the 
+    blockchain gets added to the mainnet.
+
+Client -: 
+    Clients for sending and receiving the transaction.
+    When the client initiates a transaction, it goes to the mainnet, from there
+    the transaction is forwarded to the validator.

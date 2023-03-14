@@ -1,0 +1,53 @@
+----Functioning----
+
+Server - helps clients connected to it to find each other
+
+Client - connects to server to find other users
+       - connects to miner for verifying the digital signature
+       - connects to other client to send or receive the leetcoin
+
+Miner  - user connects to it to verify the digital signature
+
+----Public key sharing model----
+
+Server - generates RSA private and public key & shares the public key to client when they connect to the server
+
+Client - generates RSA private and public key
+       
+       - shares the public key to server when it connects to the server,
+       - after server and client has shared the public key to each other, the client generates an AES key and 
+         uses the server's public key to encrypt the AES key and sends it to server. this symmetric key will 
+         be used to communicate between the server and client
+       
+       - shares the public key to miner with transaction hash and signature for verifying the signature 
+       - after miner and client has shared the public key to each other, the client generates an AES key and 
+         uses the miner's public key to encrypt the AES key and sends it to miner. this symmetric key will 
+         be used to communicate between the miner and client
+
+       - shares the public key to client when it connects
+       - after sender client and receiver client has shared the public key to each other, the receiver client 
+         generates an AES key and uses the sender client's public key to encrypt the AES key and sends it to 
+         sender client. this symmetric key will be used to communicate between the sender client and receiver client
+
+Miner  - generates RSA private and public key & an AES key
+       
+       - share the public key to client it's going to verify
+       - after miner and client share the public key to each other, miner encrypts the symmetric key using 
+         client's public key and sends it to the client. this symmetric key will be used for encrypting the
+         transaction hash, signature and public key which client will send to miner for digital signature's verfication.
+
+
+----detailed verification process----
+For a transaction to be verified on a blockchain, several other pieces of information are needed in addition to the transaction itself. Some of the key components that are needed for a transaction to be verified include:
+
+*) The sender's public key: This is used to verify that the sender has the necessary funds and permission to initiate the transaction.
+
+*) The recipient's public key: This is used to determine where the funds should be transferred.
+
+*) A signature: This is generated using the sender's private key and is used to verify that the transaction was initiated by the owner of the public key.
+
+*) A fee: Most blockchain networks require a small fee to be paid in order to process the transaction.
+
+*) A block header: This contains information such as a unique identifier for the block, a reference to the previous block in the chain, and a timestamp.
+
+*) A hash: This is a unique digital fingerprint of the transaction and the block header, and is used to secure the integrity of the data in the blockchain. 

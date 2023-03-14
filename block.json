@@ -1,0 +1,10 @@
+{
+    "block": 1,
+    "nonce": 12,
+    "transactionID": "0xwhatever",
+    "prev": "0000000000000000000",
+    "hash": "1111111111111111111",
+    "sender": "0xsynacktra",
+    "receiver": "0xelliot",
+    "funds": "9.0"
+}
